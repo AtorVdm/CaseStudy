@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>P2Boolean</title>
+<link rel='stylesheet' type='text/css' href='PonderDoc.css' />
+</head>
+<body>
+<h1 class='object-title'>P2Boolean</h1>
+<p class='object_description'>
+ A boolean object. 
+</p>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Factory Messages</th></tr>
+<tr><th>Operation</th><th>Description</th>
+</table><p/>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Operational Messages</th></tr>
+<tr><th>Operation</th><th>Return</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>not</span></td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Answers a boolean being the logical NOT operator applied to the receiver </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>&</span> <span class='argument'>aBoolean</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Answers a boolean being the receiver AND aBoolean </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>|</span> <span class='argument'>aBoolean</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Answers a boolean being the receiver OR aBoolean </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>random</span></td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Answers with a random boolean value </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>and:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Answers a boolean being the receiver AND the value of aBlock if the receiver is true. The block is not evaluated if the receiver is false. The block must return a boolean. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>or:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Answers a boolean being the receiver OR the value of aBlock if the receiver is false. The block is not evaluated if the receiver is true. The block must return a boolean. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>ifTrue:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes aBlock if the receiver is true. Answers the value of aBlock or Nil. No arguments are given to the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>ifFalse:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes aBlock if the receiver is false. Answers the value of aBlock or Nil. No arguments are given to the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>ifTrue:</span> <span class='argument'>aBlockTrue</span> <span class='keyword'>ifFalse:</span> <span class='argument'>aBlockFalse</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes aBlockTrue if the receiver is true otherwise aBlockFalse is executed. Answers the return value of the block that is executed. No arguments are given to the block to be executed. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>ifFalse:</span> <span class='argument'>aBlockFalse</span> <span class='keyword'>ifTrue:</span> <span class='argument'>aBlockTrue</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes aBlockFalse if the receiver is false otherwise aBlockTrue is executed. Answers the return value of the block that is executed. No arguments are given to the block to be executed. </td>
+</tr>
+</table><p/>

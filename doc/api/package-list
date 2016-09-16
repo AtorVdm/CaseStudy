@@ -1,0 +1,9 @@
+net.ponder2
+net.ponder2.comms
+net.ponder2.exception
+net.ponder2.inspector
+net.ponder2.managedobject
+net.ponder2.mission
+net.ponder2.objects
+net.ponder2.parser
+net.ponder2.policy

@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>SelfManagedCell</title>
+<link rel='stylesheet' type='text/css' href='PonderDoc.css' />
+</head>
+<body>
+<h1 class='object-title'>SelfManagedCell</h1>
+<h2>Based on net.ponder2.DomainP2Adaptor</h2>
+<p class='object_description'>
+ The top level root domain of the whole system. Contains main() to start the whole thing off 
+</p>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Factory Messages</th></tr>
+<tr><th>Operation</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>ping:</span> <span class='argument'>location</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Pings remote SMC to see if it is alive. Answers true if it is. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>create</span></td>
+<td class='message-description'> creates a new SelfManagedCell domain. This is normally the root domain of an SMC. It contains code for loading other objects, printing etc.</td>
+</tr>
+</table><p/>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Operational Messages</th></tr>
+<tr><th>Operation</th><th>Return</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>argsAsHash</span></td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> answers with a hash containing the user supplied arguments to the SMC. User supplied arguments are those after an argument of '-' by itself. <p> The arguments are interpreted as key=>value pairs where the key is an argument starting with a '-'. A value cannot start with a '-', it is taken to be the next key instead. The hash is indexed with the names of the keys without the '-'. If a value follows a key then it is included as the value in the hash. If a value is found without a preceding key, it is ignored. In the following example "copper" will be lost. <p> -a -b gold -c silver copper -d <p> becomes  <pre> a =&gt; &quot;&quot; b =&gt; gold c =&gt; silver d =&gt; &quot;&quot; </pre> </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>argsAsArray</span></td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> answers with an array containing all the user supplied arguments to the SMC. User supplied arguments are those after an argument of '-' by itself. All arguments are added to the array as-is, any '-' characters are left intact. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>sleep:</span> <span class='argument'>secs</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Sleeps for secs seconds </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>exit</span></td>
+<td class='message-return'>self</td>
+<td class='message-description'> Terminates the Ponder2 SMC with a zero status</td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>exit:</span> <span class='argument'>exitStatus</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Terminates the Ponder2 SMC with exitStatus </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>address:</span> <span class='argument'>anAddress</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Loads a communications protocol and sets the SMC's local address to anAddress. This is functionally the same as using the -address argument when running Ponder2, however, it means that communications can be delayed until the domain structure is setup correctly </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>load:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Loads the code necessary for creating an instance of anObject. Answers the factory for creating instances of anObject. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>ping:</span> <span class='argument'>location</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Pings remote SMC to see if it is alive. Answers true if it is. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>import:</span> <span class='argument'>aName</span> <span class='keyword'>from:</span> <span class='argument'>aLocation</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Answers the remote managed object which has aName belonging to an SMC at aLocation. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>memory</span></td>
+<td class='message-return'>long</td>
+<td class='message-description'> answers with the amount of free memory in the Java VM </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>read:</span> <span class='argument'>aUrl</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Reads and executes PonderTalk from aUrl. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>read:</span> <span class='argument'>aUrl</span> <span class='keyword'>withVars:</span> <span class='argument'>varHash</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Reads and executes PonderTalk from aUrl. The parser is initialized with the variables in the P2Hash varHash </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>readString:</span> <span class='argument'>aPonderTalkString</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Reads and executes PonderTalk from aPonderTalkString. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>readString:</span> <span class='argument'>aPonderTalkString</span> <span class='keyword'>withVars:</span> <span class='argument'>varHash</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Reads and executes PonderTalk from aPonderTalkString. The parser is initialised with the variables in the P2Hash varHash </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>getFile:</span> <span class='argument'>aFileName</span> </td>
+<td class='message-return'>String</td>
+<td class='message-description'> Reads a text file called aFileName into a string and returns it. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>trace:</span> <span class='argument'>aBoolean</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Answers aBoolean. Set system tracing on or off. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>print:</span> <span class='argument'>aString</span> </td>
+<td class='message-return'>String</td>
+<td class='message-description'> Answers aString. Displays aString on the console. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>execute:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes aBlock with no arguments. Answers with the answer from aBlock. Used to force execution of a block within a particular SMC. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>execute:</span> <span class='argument'>aBlock</span> <span class='keyword'>withHash:</span> <span class='argument'>aHash</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes aBlock with the values of its arguments being taken by name from aHash. Answers the value of the last statement executed by the block. Throws an error if aHash does not satisfy the block's arguments. Used to force execution of a block within a particular SMC. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>execute:</span> <span class='argument'>aBlock</span> <span class='keyword'>args:</span> <span class='argument'>anArray</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes aBlock with anArray of arguments. Answers with the result of the last statement executed by the block. Used to force execution of a block within a particular SMC. </td>
+</tr>
+</table><p/>

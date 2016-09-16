@@ -1,0 +1,21 @@
+{namespace xss.simple}
+/**
+ * Says hello to the world.
+ */
+{template .helloWorld}
+  Hello world!
+{/template}
+/**
+ * Filters a string of a kind html and returns it
+ * @param string The string to be filtered.
+ */
+{template .filterHTML autoescape="strict" kind="html"}
+    Filtered: {$string}
+{/template}
+/**
+ * Filters a string of a kind uri and returns it
+ * @param string The string to be filtered.
+ */
+{template .filterURI autoescape="strict" kind="uri"}
+    Filtered: {$string}
+{/template}

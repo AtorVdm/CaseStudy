@@ -1,0 +1,9 @@
+// read p2src/test2.p2
+
+a := 10.
+b := 5.
+result := a+b.
+a > b
+    ifTrue: [ result := 1]
+    ifFalse: [root print: "false"].
+root print: result.

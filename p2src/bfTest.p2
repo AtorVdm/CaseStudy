@@ -1,0 +1,29 @@
+// read p2src/bfTest.p2
+
+userName := "user1". // user who visited the page
+showCaptcha := 5.
+blockUser := 10.
+
+//root print: [root/objects/loginMap has: "user1"] value.
+
+(root/objects/loginMap has: userName)
+    ifTrue: [
+        temp := root/objects/loginMap at: userName.
+        root/objects/loginMap at: userName put: temp + 1.
+        root print: "User " + userName + " visited the page " + (temp + 1) + " times.".
+        (temp >= showCaptcha)
+            ifTrue: [
+                (temp >= blockUser)
+                    ifTrue: [
+                        root print: "User " + userName + " was blocked.".
+                    ]
+                    ifFalse: [
+                        root print: "Captcha was shown to the user " + userName + ".".
+                    ]
+            ]
+
+    ]
+    ifFalse: [
+        root/objects/loginMap at: userName put: 1.
+        root print: "User " + userName + " was added.".
+    ]

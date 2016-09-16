@@ -1,0 +1,96 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Domain</title>
+<link rel='stylesheet' type='text/css' href='PonderDoc.css' />
+</head>
+<body>
+<h1 class='object-title'>Domain</h1>
+<p class='object_description'>
+ Domain is the basic managed object for Ponder2 that supports hierarchies. View it like a directory or a folder in a filesystem 
+</p>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Factory Messages</th></tr>
+<tr><th>Operation</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>create</span></td>
+<td class='message-description'> creates a new Domain managed object </td>
+</tr>
+</table><p/>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Operational Messages</th></tr>
+<tr><th>Operation</th><th>Return</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>has:</span> <span class='argument'>aName</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> returns true if the named object exists within the domain </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>hasObject:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> returns true if anObject exists within the domain </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>size</span></td>
+<td class='message-return'>int</td>
+<td class='message-description'> Answer the number of elements in the receiver. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>listNames</span></td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> answers an array containing the names of all the domain's entries. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>listObjects</span></td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> answers an array of Managed Object names containing all the entries in the domain. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>asHash</span></td>
+<td class='message-return'>P2Hash</td>
+<td class='message-description'> Returns a hash containing all the entries in the domain as name->object pairs </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>at:</span> <span class='argument'>aName</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> answers the P2Object of the Managed Object at aName. Answers NIL if the object does not exist. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>at:</span> <span class='argument'>aName</span> <span class='keyword'>ifAbsent:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Answer the P2Object associated with aName. If not found evaluate aBlock (with no arguments) and return its result </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>at:</span> <span class='argument'>aName</span> <span class='keyword'>put:</span> <span class='argument'>p2Object</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> add anOid into the domain with aName. Answers anOid. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>do:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Calls aBlock with name/value pairs for each entry in the domain. Answers with the the receiver </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>collect:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>P2Array</td>
+<td class='message-description'> Calls aBlock with name/value pairs for each entry in the domain. Answers with an array with all the answers from the executions </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>resolve:</span> <span class='argument'>aPath</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Answers with the object from aPath relative to this domain </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>remove:</span> <span class='argument'>aName</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Removes aName and its ManagedObject from the domain. Answers the object removed. TODO Error checks? </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>removeObject:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Removes anObject from the receiver. All copies of anObject will be removed. Answers true if one or more were removed. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>removeAll</span></td>
+<td class='message-return'>self</td>
+<td class='message-description'> Removes all objects from the domain. Answers the receiver. </td>
+</tr>
+</table><p/>

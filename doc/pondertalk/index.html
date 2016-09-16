@@ -1,0 +1,130 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>PonderTalk Object Reference</title>
+<link rel='stylesheet' type='text/css' href='PonderDoc.css' />
+</head>
+<body>
+<h1 class='object-title'>PonderTalk Object Reference</h1>
+
+<table class='object-table'><tr><th colspan='2' class='object-header'>Managed Object</th></tr>
+<tr>
+<td><a href="Domain.html">Domain</a></td>
+<td> Domain is the basic managed object for Ponder2 that supports hierarchies. View it like a directory or a folder in a filesystem </td>
+</tr>
+<tr>
+<td><a href="EventForwarder.html">EventForwarder</a></td>
+<td> Forwards event from its attachment point to another part of the proximity event bus in this or another SMC. May also be used to forward events as ordinary messages to Managed Objects, useful for communicating with external event busses. </td>
+</tr>
+<tr>
+<td><a href="EventTemplate.html">EventTemplate</a></td>
+<td> Managed object to act as a template for notifications (events). Each instance of the template contains a set of named arguments. These argument names can be retrieved for checking against Policies that expect to be activated by the events. When an event is created using this template the named arguments are packed into a map and sent around the system inside the event. </td>
+</tr>
+<tr>
+<td><a href="ExternalManagedObject.html">ExternalManagedObject</a></td>
+<td> A managed object that represents a remote managed object. It acts as a proxy, rerouting any requests that it receives to the remote object. An external managed object is not imported and used in the normal way, it is automatically instantiated and filled in by the <use> clause when it recognises a remote address. </td>
+</tr>
+<tr>
+<td><a href="FactoryObject.html">FactoryObject</a></td>
+<td> This managed object class is used to hold the factory classes for other managed objects and to instantiate new managed objects. This is the only way managed object types get into the system and the only way instances of those types are created (unless they are being restored). </td>
+</tr>
+<tr>
+<td><a href="HashInspector.html">HashInspector</a></td>
+<td> Creates a window making available for editing the values of a Hash. Understands, strings, numbers and booleans. If objects are in the hash, they will be displayed but will not be editable. </td>
+</tr>
+<tr>
+<td><a href="PonderTalk.html">PonderTalk</a></td>
+<td> A Managed Object that parses and executes PonderTalk. PonderTalk can be supplied as strings from other PonderTalk statements or as strings received over RMI. The PonderTalk string is executed and the result is returned as a string. If an error occurs then a Ponder2Exception or a RemoteException is thrown.  This managed object can also be used as a stand-alone program to send PonderTalk to a remote SMC using RMI.<br> 1. Create this managed object in an SMC giving it a RMI name to use. e.g. MyPonder2<br> 2. Send PonderTalk to the SMC using the Ponder2 JAR file e.g.<br> java -cp ponder2.jar net.ponder2.PonderTalk MyPonder2 any PonderTalk statement </td>
+</tr>
+<tr>
+<td><a href="SelfManagedCell.html">SelfManagedCell</a></td>
+<td> The top level root domain of the whole system. Contains main() to start the whole thing off </td>
+</tr>
+<tr>
+<td><a href="Semaphore.html">Semaphore</a></td>
+<td> A semaphore object to enable synchronisation between managed objects. Typically used when interacting with GUIs </td>
+</tr>
+<tr>
+<td><a href="ShellInstance.html">ShellInstance</a></td>
+<td> The actual class that an interactive user interacts with. One ShellInstance is spawned off in a new thread for each new connection received. </td>
+</tr>
+<tr>
+<td><a href="Timer.html">Timer</a></td>
+<td> Implements a multiple timer. Events may be fired off at regular intervals or after a single interval. <br> Time can be given in milliseconds as a simple number or as hh:mm:ss. e.g. 0:22 would be 22 seconds.<br> If the event is declared with a count attribute then the attribute will be set to the event number before each event is sent. </td>
+</tr>
+<tr>
+<td><a href="CsvHash.html">CsvHash</a></td>
+<td> TODO Description </td>
+</tr>
+<tr>
+<td><a href="DateTime.html">DateTime</a></td>
+<td> TODO Description </td>
+</tr>
+<tr>
+<td><a href="DynamicString.html">DynamicString</a></td>
+<td> Implements a dynamic string. This string can be appended to and otherwise used as a String. </td>
+</tr>
+<tr>
+<td><a href="SampleObject.html">SampleObject</a></td>
+<td> Implements a hash or dictionary. This object holds name/object pairs. Objects may be added and removed. </td>
+</tr>
+<tr>
+<td><a href="Interface.html">Interface</a></td>
+<td> Provides an interface to remote systems. Commands may be added to this managed object which are mapped into commands to other, local, managed objects. Objects may also be exported by this interface in which case they are addressed in the normal manner using pathnames through the interface or by using the command "at:" </td>
+</tr>
+<tr>
+<td><a href="Mission.html">Mission</a></td>
+<td> Describes a mission which can be instantiated at a Mission Controller with a set of given interfaces. </td>
+</tr>
+<tr>
+<td><a href="MissionController.html">MissionController</a></td>
+<td> A MissionController is responsible for managing missions in its SMC. It can load, unload, start and stop missions. </td>
+</tr>
+<tr>
+<td><a href="P2Array.html">P2Array</a></td>
+<td> Holds a collection of Ponder2 objects. An array may be returned from sending a message to an object or or may be created in PonderTalk with the  <pre> #( obj1 obj2 obj3) </pre>  syntax. </td>
+</tr>
+<tr>
+<td><a href="P2Block.html">P2Block</a></td>
+<td> Acts as a closure encompassing PonderTalk statements. Any variables used by the statements within the block are untouched once the block is created. Blocks may have arguments that are handed in when they are executed. When a block is executed it returns returns the value of the last statement executed within the block. c.f. function calls. </td>
+</tr>
+<tr>
+<td><a href="P2Boolean.html">P2Boolean</a></td>
+<td> A boolean object. </td>
+</tr>
+<tr>
+<td><a href="P2Error.html">P2Error</a></td>
+<td> Object containing error details created when an error is thrown in the code. Attributes include an error message and the PonderTalk source file name, line number and character number. <p> This is the argument received by the block onError: message. </td>
+</tr>
+<tr>
+<td><a href="P2Hash.html">P2Hash</a></td>
+<td> Implements a dictionary that stores objects indexed by keys. The keys are string types. </td>
+</tr>
+<tr>
+<td><a href="P2Number.html">P2Number</a></td>
+<td> An object used for comparing and counting </td>
+</tr>
+<tr>
+<td><a href="P2String.html">P2String</a></td>
+<td> TODO Description </td>
+</tr>
+<tr>
+<td><a href="P2XML.html">P2XML</a></td>
+<td> This is an internal Ponder2 XML object type. It represents an XML structure which can be operated upon with XPath commands </td>
+</tr>
+<tr>
+<td><a href="AuthorisationPolicy.html">AuthorisationPolicy</a></td>
+<td> This is an Authorisation Policy. See http://ponder2.net/cgi-bin/moin.cgi/BasicScenario for more information on using authorisation policies. </td>
+</tr>
+<tr>
+<td><a href="Event.html">Event</a></td>
+<td> The actual notification that is sent through the system. An Event is created using an EventTemplate which packages up named arguments and includes them in the Event. Several static methods aid in the creation and sending of Events. </td>
+</tr>
+<tr>
+<td><a href="ObligationPolicy.html">ObligationPolicy</a></td>
+<td> an obligation policy that performs Event, Condition, Action rules for the SMC </td>
+</tr>
+<tr>
+<td><a href="Policy.html">Policy</a></td>
+<td> This class implements policies within the SMC. It is the base class for more specialised policy classes and manages all the common work. </td>
+</tr>

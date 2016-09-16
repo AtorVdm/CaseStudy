@@ -1,0 +1,9 @@
+// read p2src/bfInit.p2
+
+factory := root load: "LoginMap".
+loginMap := factory create.
+
+domainFactory := root load: "Domain".
+root at: "objects" put: domainFactory create.
+
+root/objects at: "loginMap" put: loginMap.

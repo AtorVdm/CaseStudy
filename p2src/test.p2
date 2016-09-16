@@ -1,0 +1,17 @@
+// read p2src/test.p2
+
+bsnValue := root/factory/event create: #( "name" "newValue" "oldValue" "rate").
+root/event at: "bsnValue" put: bsnValue.
+policy := root/factory/ecapolicy create.
+policy event: root/event/bsnValue;
+condition: [ :name :oldValue :newValue |
+// Add a debugging print statement
+root print: "Got "+ name + " old " + oldValue + " new " + newValue.
+(newValue > 0) & (oldValue < 0)
+]; action: [
+:name |
+root print: "Policy triggered: " + name.
+].
+root/policy at: "location" put: policy. policy active: true.
+root print: "Policy loaded.".
+// Run with: "root/event/bsnValue create: #("test" 10 -10 1)." OR "event bsnValue "test" 10 -10 1|

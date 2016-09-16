@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Interface</title>
+<link rel='stylesheet' type='text/css' href='PonderDoc.css' />
+</head>
+<body>
+<h1 class='object-title'>Interface</h1>
+<p class='object_description'>
+ Provides an interface to remote systems. Commands may be added to this managed object which are mapped into commands to other, local, managed objects. Objects may also be exported by this interface in which case they are addressed in the normal manner using pathnames through the interface or by using the command "at:" 
+</p>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Factory Messages</th></tr>
+<tr><th>Operation</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>create</span></td>
+<td class='message-description'> Creates a new Interface object </td>
+</tr>
+</table><p/>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Operational Messages</th></tr>
+<tr><th>Operation</th><th>Return</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>listenTo:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'></td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>missionController:</span> <span class='argument'>aMissionController</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Set the Interface's mission controller to be aMissionController. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>event:</span> <span class='argument'>aName</span> <span class='keyword'>is:</span> <span class='argument'>anEventType</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Maps aName to anEventType. This name may be used in the <b>acceptsEvent:</b> or <b>sendsEvent:</b> Interface commands. <p> Events appear as objects in the interface under the pseudo domain <i>event</i>. Thus they may be accessed as <b>interface/event/eventName</b> </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>acceptsEvent:</span> <span class='argument'>anEventName</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Tells the Interface that it can accept events previously defined with anEventName </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>acceptsEvent:</span> <span class='argument'>anEventName</span> <span class='keyword'>from:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Tells the Interface that it can accept events previously defined with anEventName </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>raise:</span> <span class='argument'>eventName</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'></td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>providesEvent:</span> <span class='argument'>anEventName</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Tells the Interface that it can propagate events previously defined with anEventName </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>subscribe:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'></td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>map:</span> <span class='argument'>aCommand</span> <span class='keyword'>to:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Maps aCommand to anObject. aCommand appears as part of the external interface of this Interface. Answers with the result of the command </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>map:</span> <span class='argument'>aCommand</span> <span class='keyword'>to:</span> <span class='argument'>anObject</span> <span class='keyword'>as:</span> <span class='argument'>anotherCommand</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Maps aCommand to anObject as anotherCommand. aCommand appears as part of the external interface of this Interface. Answers with the result of the command </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>map:</span> <span class='argument'>aName</span> <span class='keyword'>toObject:</span> <span class='argument'>anObject</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Exports anObject with aName. The Interface appears to be a domain with aName inside it </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>at:</span> <span class='argument'>aName</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Returns the exported object called aName </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>Wild Card</span></td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> For internal use. Maps any command to the correct object and command. Answers with the answer produced by executing the command. Throws an error if the command is not found. </td>
+</tr>
+</table><p/>

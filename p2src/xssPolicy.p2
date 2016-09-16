@@ -1,0 +1,15 @@
+// read p2src/xssPolicy.p2
+// Run with: "root/event/xssPolicy create: #("userName" "text")." OR "event xssPolicy "userName" "text""
+// event xssPolicy "Hacker" "<script>alert('Hacked')</script>"
+xssPolicy := root/factory/event create: #( "userName" "text").
+root/event at: "xssPolicy" put: xssPolicy.
+policy := root/factory/ecapolicy create.
+policy event: root/event/xssPolicy;
+condition: [
+    :userName :text | true
+]; action: [
+    :userName :text |
+    result := root/objects/xssFilter user: userName filter: text.
+    root print: result.
+].
+root/policy at: "location" put: policy. policy active: true.

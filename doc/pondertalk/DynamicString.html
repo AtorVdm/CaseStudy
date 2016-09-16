@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>DynamicString</title>
+<link rel='stylesheet' type='text/css' href='PonderDoc.css' />
+</head>
+<body>
+<h1 class='object-title'>DynamicString</h1>
+<p class='object_description'>
+ Implements a dynamic string. This string can be appended to and otherwise used as a String. 
+</p>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Factory Messages</th></tr>
+<tr><th>Operation</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>create</span></td>
+<td class='message-description'> Creates a new Dynamic String</td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>create:</span> <span class='argument'>aString</span> </td>
+<td class='message-description'> Creates a new Dynamic String initialised with aString </td>
+</tr>
+</table><p/>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Operational Messages</th></tr>
+<tr><th>Operation</th><th>Return</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>add:</span> <span class='argument'>aString</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> Appends anObject to the receiver. Answers anObject. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>cr</span></td>
+<td class='message-return'>self</td>
+<td class='message-description'> Appends a newline sequence to the receiver.</td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>tab</span></td>
+<td class='message-return'>self</td>
+<td class='message-description'> Appends a tab character to the receiver.</td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>asString</span></td>
+<td class='message-return'>String</td>
+<td class='message-description'> Returns the receiver as a String </td>
+</tr>
+</table><p/>

@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CaseStudy:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="cart.war">
+      <element id="artifact" artifact-name="MainModule:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="soy-latest" module-name="MainModule" />
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="module" name="soy-latest" module-name="CaseStudy" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

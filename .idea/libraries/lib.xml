@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/2p.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ponder2comms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sscomms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/antlr-runtime.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ponder2aptfactory.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/qdparser.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ponder2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xmlBlasterClient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

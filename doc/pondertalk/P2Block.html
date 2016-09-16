@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>P2Block</title>
+<link rel='stylesheet' type='text/css' href='PonderDoc.css' />
+</head>
+<body>
+<h1 class='object-title'>P2Block</h1>
+<p class='object_description'>
+ Acts as a closure encompassing PonderTalk statements. Any variables used by the statements within the block are untouched once the block is created. Blocks may have arguments that are handed in when they are executed. When a block is executed it returns returns the value of the last statement executed within the block. c.f. function calls. 
+</p>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Factory Messages</th></tr>
+<tr><th>Operation</th><th>Description</th>
+</table><p/>
+<table class='message-table'><tr><th colspan='3' class='message-header'>Operational Messages</th></tr>
+<tr><th>Operation</th><th>Return</th><th>Description</th>
+</tr>
+<td class='message-prototype'><span class='keyword'>hasArgs:</span> <span class='argument'>aHash</span> </td>
+<td class='message-return'>boolean</td>
+<td class='message-description'> Returns true if aHash contains entries that match all the names of the arguments that the block requires. Otherwise returns false. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>valueHash:</span> <span class='argument'>aHash</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> The block is executed with the values of its arguments being taken by name from aHash. Answers the value of the last statement executed by the block. Throws an error if aHash does not satisfy the block's arguments. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>valueVars:</span> <span class='argument'>aHash</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> The block is executed with the values in aHash being added to the block's environment variables. Variables in aHash will overwrite environment variables with the same name. The values are added for this call only and do not persist. Answers the value of the last statement executed by the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>value</span></td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> executes the block with no arguments. Answers with the result of the last statement executed by the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>value:</span> <span class='argument'>arg0</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes the block with one argument: arg0. Answers with the result of the last statement executed by the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>value:</span> <span class='argument'>arg0</span> <span class='keyword'>value:</span> <span class='argument'>arg1</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes the block with two arguments: arg0 and arg1. Answers with the result of the last statement executed by the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>value:</span> <span class='argument'>arg0</span> <span class='keyword'>value:</span> <span class='argument'>arg1</span> <span class='keyword'>value:</span> <span class='argument'>arg2</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes the block with three arguments: arg0, arg1 and arg2. Answers with the result of the last statement executed by the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>values:</span> <span class='argument'>anArray</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> Executes the block with anArray of arguments. Answers with the result of the last statement executed by the block. </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>whileTrue:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> While the receiver is true, keep executing aBlock with no arguments </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>whileFalse:</span> <span class='argument'>aBlock</span> </td>
+<td class='message-return'>self</td>
+<td class='message-description'> While the receiver is false, keep executing aBlock with no arguments </td>
+</tr>
+</tr>
+<td class='message-prototype'><span class='keyword'>onError:</span> <span class='argument'>anErrorBlock</span> </td>
+<td class='message-return'>P2Object</td>
+<td class='message-description'> associates anErrorBlock with the receiver. The error block is executed if a Ponder2 error occurs in the receiver. The error block is given one P2Error argument which contains the error details. </td>
+</tr>
+</table><p/>

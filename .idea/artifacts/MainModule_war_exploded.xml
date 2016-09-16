@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MainModule:war exploded">
+    <output-path>$PROJECT_DIR$/target/cart</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="CaseStudy" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.180" />
+          <element id="library" level="module" name="soy-latest" module-name="MainModule" />
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="module" name="soy-latest" module-name="CaseStudy" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/cart/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="CaseStudy/web/Web" />
+    </root>
+  </artifact>
+</component>

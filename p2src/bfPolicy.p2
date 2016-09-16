@@ -1,0 +1,36 @@
+// read p2src/bfPolicy.p2
+// Run with: "root/event/bfPolicy create: #("userName")." OR "event bfPolicy "userName""
+bfPolicy := root/factory/event create: #( "userName" ).
+root/event at: "bfPolicy" put: bfPolicy.
+policy := root/factory/ecapolicy create.
+policy event: root/event/bfPolicy;
+condition: [
+    :userName | true
+]; action: [
+    :userName |
+    showCaptcha := 5.
+    blockUser := 10.
+
+    (root/objects/loginMap has: userName)
+        ifTrue: [
+            temp := root/objects/loginMap at: userName.
+            root/objects/loginMap at: userName put: temp + 1.
+            root print: "User " + userName + " visited the page " + (temp + 1) + " times.".
+            (temp >= showCaptcha)
+                ifTrue: [
+                    (temp >= blockUser)
+                        ifTrue: [
+                            root print: "User " + userName + " was blocked.".
+                        ]
+                        ifFalse: [
+                            root print: "Captcha was shown to the user " + userName + ".".
+                        ]
+                ]
+
+        ]
+        ifFalse: [
+            root/objects/loginMap at: userName put: 1.
+            root print: "User " + userName + " was added.".
+        ]
+].
+root/policy at: "location" put: policy. policy active: true.
